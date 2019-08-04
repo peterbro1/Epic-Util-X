@@ -8,12 +8,7 @@
 *.ctxt
 
 # IDEA
-compiler.xml
-encodings.xml
-misc.xml
-vcs.xml
-workspace.xml
-
+/.idea
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
