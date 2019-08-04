@@ -6,8 +6,13 @@
 
 # BlueJ files
 *.ctxt
+
 # IDEA
-.idea
+compiler.xml
+encodings.xml
+misc.xml
+vcs.xml
+workspace.xml
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
