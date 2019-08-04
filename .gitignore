@@ -9,6 +9,12 @@
 
 # IDEA
 /.idea
+.idea/
+target/
+/target
+pom.xml
+dependency-reduced-pom.xml
+EpicUtilX.iml
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
