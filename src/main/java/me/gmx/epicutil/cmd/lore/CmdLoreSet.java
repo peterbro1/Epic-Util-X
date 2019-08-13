@@ -19,10 +19,10 @@ public class CmdLoreSet extends BSubCommand {
         this.aliases.add("setlore");
         this.correctUsage = "/lore set [string...]";
         this.permission = "epicutil.lore.set";
+        this.senderMustBePlayer = true;
     }
     @Override
     public void execute() {
-        String text = ChatColor.translateAlternateColorCodes('&',buildStringFromArgs(0,args.length - 1));
         ItemStack stack = player.getInventory().getItemInMainHand();
         if (stack.getType().equals(Material.AIR) ){
             msg(Lang.MSG_LORE_NULLITEM.toMsg());
@@ -32,6 +32,7 @@ public class CmdLoreSet extends BSubCommand {
             msg(Lang.MSG_USAGE_LORE.toMsg());
             return;
         }
+        String text = ChatColor.translateAlternateColorCodes('&',buildStringFromArgs(0,args.length - 1));
         ItemUtils.setLore(stack,text);
         msg(Lang.MSG_LORE_SET.toMsg());
     }

@@ -2,6 +2,7 @@ name: EpicUtil
 main: me.gmx.epicutil.EpicUtil
 version: ${project.version}
 author: GMX
+depend: [ProtocolLib]
 commands:
   lore:
     description: Base command for text manipulation.
@@ -16,3 +17,11 @@ commands:
   clearchat:
     description: Clears chat
     usage: /clearchat
+  freeze:
+    usage: /freeze [player]
+    description: Freezes a player
+    aliases: [ss]
+  chatping:
+    usage: /chatping
+    description: Toggles chat pings from other players
+    aliases: [cp]

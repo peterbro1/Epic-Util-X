@@ -1,12 +1,12 @@
 package me.gmx.epicutil;
 
-import me.gmx.epicutil.cmd.CmdClearChat;
-import me.gmx.epicutil.cmd.CmdEpicUtil;
-import me.gmx.epicutil.cmd.CmdLore;
-import me.gmx.epicutil.cmd.CmdMuteChat;
+import com.comphenix.protocol.ProtocolLibrary;
+import com.comphenix.protocol.ProtocolManager;
+import me.gmx.epicutil.cmd.*;
 import me.gmx.epicutil.config.Lang;
 import me.gmx.epicutil.config.Settings;
 import me.gmx.epicutil.core.BConfig;
+import me.gmx.epicutil.handler.FreezeManager;
 import me.gmx.epicutil.listener.PlayerListener;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -22,10 +22,12 @@ public class EpicUtil extends JavaPlugin {
     Logger logger;
     public boolean magicnessCompat;
     public boolean chatMuted;
+    public FreezeManager freezeManager;
 
     @Override
     public void onEnable(){
         chatMuted = false;
+
         //magicnessCompat = Bukkit.getPluginManager().getPlugin("Magicness") == null ? false : true;
         ins = this;
         this.logger = getLogger();
@@ -37,17 +39,23 @@ public class EpicUtil extends JavaPlugin {
         Settings.setConfig(this.mainConfig);
         registerCommands();
         registerListeners();
+        freezeManager = new FreezeManager(getInstance());
+
     }
 
 
     public static EpicUtil getInstance(){
         return ins;
     }
+
+
     public void registerCommands(){
         getCommand("epicutil").setExecutor(new CmdEpicUtil(getInstance()));
         getCommand("lore").setExecutor(new CmdLore(getInstance()));
         getCommand("clearchat").setExecutor(new CmdClearChat());
         getCommand("mutechat").setExecutor(new CmdMuteChat(getInstance()));
+        getCommand("freeze").setExecutor(new CmdFreeze(getInstance()));
+        getCommand("chatping").setExecutor(new CmdChatPing(getInstance()));
 
     }
     public void registerListeners(){

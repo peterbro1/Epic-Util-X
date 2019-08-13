@@ -26,7 +26,7 @@ public class CmdClearChat implements CommandExecutor {
             Bukkit.broadcastMessage("");
         }
         try {
-            if (Settings.SHOW_WHO_CLEARED_CHAT.getBoolean()) {
+            if (Settings.CLEARCHAT_SHOWNAME.getBoolean()) {
                 Bukkit.broadcastMessage(Lang.MSG_CLEARCHAT_NAME.toMsg().replace("%name%",sender.getName()));
             }
         }catch(Exception e){

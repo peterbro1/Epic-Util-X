@@ -17,6 +17,7 @@ public class CmdLoreClear extends BSubCommand {
         this.aliases.add("clearlore");
         this.correctUsage = "/lore clear";
         this.permission = "epicutil.lore.clear";
+        this.senderMustBePlayer=true;
     }
     @Override
     public void execute() {

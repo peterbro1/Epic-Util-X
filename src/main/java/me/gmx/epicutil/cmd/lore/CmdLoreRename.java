@@ -15,10 +15,10 @@ public class CmdLoreRename extends BSubCommand {
         this.aliases.add("name");
         this.correctUsage = "/lore rename [name]";
         this.permission = "epicutil.lore.rename";
+        this.senderMustBePlayer=true;
     }
     @Override
     public void execute() {
-        String text = buildStringFromArgs(0,args.length - 1);
         ItemStack stack = player.getInventory().getItemInMainHand();
         if (stack.getType().equals(Material.AIR) ){
             msg(Lang.MSG_LORE_NULLITEM.toMsg());
@@ -28,8 +28,9 @@ public class CmdLoreRename extends BSubCommand {
             msg(Lang.MSG_USAGE_LORE.toMsg());
             return;
         }
+        String text = ChatColor.translateAlternateColorCodes('&',buildStringFromArgs(0,args.length - 1));
         ItemMeta meta = ItemUtils.getMeta(stack);
-        meta.setDisplayName(ChatColor.RESET + ChatColor.translateAlternateColorCodes('&',text));
+        meta.setDisplayName(ChatColor.RESET +text);
         stack.setItemMeta(meta);
 
         msg(Lang.MSG_LORE_RENAME.toMsg());

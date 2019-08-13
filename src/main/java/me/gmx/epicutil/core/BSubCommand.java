@@ -7,6 +7,7 @@ import java.util.List;
 
 import me.gmx.epicutil.EpicUtil;
 import me.gmx.epicutil.config.Lang;
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -64,7 +65,7 @@ public abstract class BSubCommand
 
 
     public abstract void execute();
-    public void msg(String paramString) { this.sender.sendMessage(paramString); }
+    public void msg(String paramString) { this.sender.sendMessage(ChatColor.translateAlternateColorCodes('&',paramString)); }
 
 
     public void sendCorrectUsage() {

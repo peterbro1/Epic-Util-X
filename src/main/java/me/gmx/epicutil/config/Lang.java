@@ -12,18 +12,23 @@ public enum Lang {
     MSG_USAGE_SUBCOMMAND("Invalid Command usage. Correct usage: %usage%"),
     MSG_USAGE_LORE("Incorrect usage. Please check /lore help"),
     MSG_USAGE_EPICUTIL("Invalid Command usage. Please check /epicutil help."),
+    MSG_USAGE_FREEZE("&4Invalid Command usage. Please check /ss help"),
     MSG_LORE_NULLITEM("&4You must hold an item for this command"),
     MSG_LORE_RENAME("&2Your item has been renamed!"),
     MSG_LORE_SET("&2Your item's lore has been changed!"),
     MSG_LORE_ADD("&2String appended to your item's lore."),
     MSG_LORE_CLEAR("&2Your item's lore has been cleared!"),
     MSG_LORE_UNBREAK("&2Unbreakability toggled!"),
+    MSG_UNFROZEN("&2You have been unfrozen!"),
     MSG_CLEARCHAT_INVALID("Invalid command usage. Usage is just " + ChatColor.GREEN + "/clearchat"),
     MSG_MUTECHAT_INVALID("Invalid command usage. Usage is just " + ChatColor.GREEN + "/mutechat"),
     MSG_CLEARCHAT_NAME("&3&l%name% &2has cleared the chat."),
     MSG_CHATMUTED("&4Chat is currently muted! Please wait for an admin to unmute it."),
     MSG_CHATMUTE_SUCCESS("&3Chat mute has been toggled."),
-    LANG_CONSOLE("The console cannot use this command.");/*
+    LANG_CONSOLE("The console cannot use this command."),
+    MSG_CHATPING_TOGGLE("Chat pings toggled."),
+    MSG_USAGE_CHATPING("Invalid command usage. Usage is just " + ChatColor.GREEN + "/chatping"),
+    MSG_NULLPlAYER("&4Invalid player!");/*
 
     MSG_LORE_HELP("&2Lore&3-------------" + "\n" +
             "&3/lore rename [name] -" + "&9 Changes item name." + "\n" +
@@ -77,7 +82,7 @@ public enum Lang {
     }
 
 
-    private String fixColors(String paramString) {
+    public static String fixColors(String paramString) {
         if (paramString == null)
             return "";
         return ChatColor.translateAlternateColorCodes('&', paramString);
